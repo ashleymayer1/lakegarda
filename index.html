@@ -1,0 +1,753 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Lake Garda 2027 · Nichole's 40th</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  :root { --terracotta: #C1502E; --azure: #2E8BB5; --whitewash: #FAF6EF; --gold: #D4A23C; --white: #FAFAFA; --ink: #1C1C1C; --muted: #6B7280; --border: #E3D9C6; --green: #2D6A4F; --navy: #20384A; }
+  body { font-family: 'Inter', sans-serif; background: var(--whitewash); color: var(--ink); font-size: 14px; line-height: 1.6; }
+  /* Hero */
+  .hero { background: var(--navy); color: var(--white); padding: 56px 48px 48px; position: relative; overflow: hidden; }
+  .hero::before { content: ''; position: absolute; bottom: 0; left: 0; right: 0; height: 80px; background: linear-gradient(180deg, transparent, rgba(0,0,0,0.25)); }
+  .hero-wave { position: absolute; top: 0; right: 0; width: 340px; height: 100%; opacity: 0.08; background: radial-gradient(ellipse at 80% 50%, var(--terracotta) 0%, transparent 70%); }
+  .hero-eyebrow { font-size: 11px; font-weight: 600; letter-spacing: 0.14em; text-transform: uppercase; color: var(--gold); margin-bottom: 12px; }
+  .hero h1 { font-family: 'Cormorant Garamond', serif; font-size: 52px; font-weight: 300; line-height: 1.1; margin-bottom: 8px; }
+  .hero h1 em { font-style: italic; color: #F0C9A0; }
+  .hero-sub { font-size: 15px; color: rgba(255,255,255,0.7); margin-top: 10px; max-width: 540px; }
+  .hero-meta { display: flex; gap: 32px; margin-top: 32px; flex-wrap: wrap; }
+  .hero-meta-item { border-left: 2px solid var(--gold); padding-left: 12px; }
+  .hero-meta-item .label { font-size: 10px; font-weight: 600; letter-spacing: 0.12em; text-transform: uppercase; color: rgba(255,255,255,0.5); margin-bottom: 2px; }
+  .hero-meta-item .value { font-size: 15px; font-weight: 500; }
+  /* Included bar */
+  .included-bar { background: var(--azure); color: var(--white); padding: 16px 48px; display: flex; align-items: center; gap: 32px; flex-wrap: wrap; }
+  .included-bar .label { font-size: 10px; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase; opacity: 0.75; white-space: nowrap; }
+  .included-bar .items { display: flex; gap: 24px; flex-wrap: wrap; }
+  .included-bar .item { font-size: 13px; display: flex; align-items: center; gap: 6px; }
+  .included-bar .item::before { content: '✓'; font-weight: 700; font-size: 12px; color: #BFEFD0; }
+  /* Layout */
+  .main { max-width: 960px; margin: 0 auto; padding: 40px 32px; }
+  .section-header { display: flex; align-items: baseline; gap: 14px; margin-bottom: 20px; margin-top: 48px; }
+  .section-header:first-of-type { margin-top: 0; }
+  .section-num { font-family: 'Cormorant Garamond', serif; font-size: 13px; font-weight: 400; color: var(--gold); letter-spacing: 0.08em; flex-shrink: 0; }
+  .section-header h2 { font-family: 'Cormorant Garamond', serif; font-size: 26px; font-weight: 400; letter-spacing: -0.01em; }
+  .section-desc { font-size: 13px; color: var(--muted); margin-bottom: 24px; line-height: 1.7; max-width: 680px; }
+  /* Callouts */
+  .callout { border-radius: 8px; padding: 14px 18px; margin: 12px 0; font-size: 12.5px; line-height: 1.65; display: flex; gap: 12px; align-items: flex-start; }
+  .callout.warn { background: #FEF3C7; border-left: 3px solid #F59E0B; }
+  .callout.tip { background: #ECFDF5; border-left: 3px solid #10B981; }
+  .callout.info { background: #E8F4FB; border-left: 3px solid var(--azure); }
+  .callout-icon { font-size: 16px; flex-shrink: 0; margin-top: 1px; }
+  .callout-text strong { display: block; font-weight: 600; margin-bottom: 3px; font-size: 13px; }
+  /* Shared costs table */
+  .costs-table-wrap { margin: 0 0 28px; }
+  table.costs-table { width: 100%; border-collapse: collapse; font-size: 13px; background: var(--white); border: 1px solid var(--border); border-radius: 8px; overflow: hidden; }
+  table.costs-table th { background: var(--navy); color: var(--white); font-weight: 600; padding: 10px 16px; text-align: left; font-size: 11px; letter-spacing: 0.06em; }
+  table.costs-table th:last-child { text-align: right; }
+  table.costs-table td { padding: 9px 16px; border-bottom: 1px solid #F0E8D8; font-size: 12.5px; color: var(--muted); }
+  table.costs-table td:first-child { color: var(--ink); }
+  table.costs-table td:last-child { text-align: right; font-weight: 600; font-variant-numeric: tabular-nums; color: var(--navy); }
+  table.costs-table tr:last-child td { border-bottom: none; }
+  table.costs-table .total-row td { background: #F4EFE3; font-weight: 700; color: var(--navy); border-top: 2px solid var(--border); }
+  /* Tier sections */
+  .tier-section { margin-bottom: 28px; }
+  .tier-header { display: flex; align-items: center; gap: 12px; margin-bottom: 4px; }
+  .tier-header-label { font-size: 10px; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase; color: var(--navy); white-space: nowrap; }
+  .tier-header::after { content: ''; flex: 1; height: 1px; background: var(--border); }
+  .tier-subhead { font-size: 11.5px; color: var(--muted); font-style: italic; margin-bottom: 14px; }
+  .scenario-grid-1 { display: grid; grid-template-columns: 1fr; }
+  .scenario-grid-2 { display: grid; grid-template-columns: repeat(2, 1fr); gap: 16px; }
+  /* Scenario cards */
+  .scenario-card { background: var(--white); border: 1px solid var(--border); border-radius: 8px; overflow: hidden; }
+  .scenario-card.recommended { border-color: var(--azure); border-width: 2px; }
+  .scenario-card.best-card { border-color: var(--gold); border-width: 2px; }
+  .scenario-badge { font-size: 10px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; padding: 6px 14px; text-align: center; background: var(--border); color: var(--muted); }
+  .scenario-card.recommended .scenario-badge { background: var(--azure); color: var(--white); }
+  .scenario-card.best-card .scenario-badge { background: var(--gold); color: var(--white); }
+  .scenario-head { padding: 18px 20px 14px; border-bottom: 1px solid var(--border); }
+  .scenario-name { font-family: 'Cormorant Garamond', serif; font-size: 22px; font-weight: 600; color: var(--navy); margin-bottom: 3px; line-height: 1.2; }
+  .scenario-tagline { font-size: 11px; color: var(--muted); line-height: 1.4; }
+  .scenario-total { padding: 14px 20px; background: #F4EFE3; border-bottom: 1px solid var(--border); }
+  .scenario-total .price { font-size: 36px; font-family: 'Cormorant Garamond', serif; font-weight: 600; color: var(--navy); line-height: 1; }
+  .scenario-total .price-label { font-size: 11px; color: var(--muted); margin-top: 3px; }
+  .scenario-lines { padding: 14px 20px 10px; }
+  .scenario-line { display: flex; justify-content: space-between; align-items: baseline; padding: 5px 0; border-bottom: 1px solid #F0E8D8; font-size: 12px; gap: 8px; }
+  .scenario-line:last-child { border-bottom: none; }
+  .scenario-line .line-label { color: var(--muted); }
+  .scenario-line .line-val { font-weight: 500; font-variant-numeric: tabular-nums; white-space: nowrap; }
+  .scenario-line.lodging-row .line-label { color: var(--ink); font-weight: 600; }
+  .scenario-line.lodging-row .line-val { color: var(--navy); font-weight: 700; }
+  .scenario-line.total-row .line-label { font-weight: 700; color: var(--navy); font-size: 13px; }
+  .scenario-line.total-row .line-val { font-weight: 700; color: var(--navy); font-size: 15px; }
+  .scenario-upgrade { display: flex; justify-content: space-between; align-items: baseline; padding: 8px 20px 10px; font-size: 11.5px; color: var(--azure); background: #EFF7FB; border-top: 1px dashed #C5E0F0; gap: 8px; }
+  .scenario-upgrade .upg-val { font-weight: 600; font-variant-numeric: tabular-nums; white-space: nowrap; }
+  .scenario-note { padding: 10px 20px 16px; font-size: 11px; color: var(--muted); font-style: italic; line-height: 1.6; }
+  /* Property cards */
+  .prop-tier-label { font-size: 10px; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase; color: var(--navy); display: flex; align-items: center; gap: 12px; margin-bottom: 4px; margin-top: 28px; }
+  .prop-tier-label::after { content: ''; flex: 1; height: 1px; background: var(--border); }
+  .prop-subhead { font-size: 11.5px; color: var(--muted); font-style: italic; margin-bottom: 12px; }
+  .prop-grid-1 { display: grid; grid-template-columns: 1fr; gap: 14px; }
+  .prop-grid-2 { display: grid; grid-template-columns: repeat(2, 1fr); gap: 14px; }
+  .prop-card { background: var(--white); border: 1px solid var(--border); border-radius: 8px; padding: 18px 20px; }
+  .prop-card.best-prop { border-color: var(--gold); border-width: 2px; }
+  .prop-card.better-prop { border-color: var(--azure); }
+  .prop-card h4 { font-family: 'Cormorant Garamond', serif; font-size: 19px; font-weight: 600; color: var(--navy); margin-bottom: 2px; line-height: 1.2; }
+  .prop-tier-tag { font-size: 10px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.1em; color: var(--gold); display: block; margin-bottom: 10px; }
+  .prop-card p { font-size: 12.5px; color: var(--muted); line-height: 1.6; margin-bottom: 8px; }
+  .prop-card p:last-of-type { margin-bottom: 0; }
+  .prop-facts { margin-top: 12px; padding-top: 12px; border-top: 1px solid #F0E8D8; display: flex; flex-direction: column; gap: 5px; }
+  .prop-fact { font-size: 12px; color: var(--muted); display: flex; gap: 8px; align-items: flex-start; }
+  .prop-fact .fi { flex-shrink: 0; line-height: 1.6; }
+  .prop-fact b { color: var(--ink); font-weight: 600; }
+  /* Flights */
+  .route-card { background: var(--white); border: 2px solid var(--azure); border-radius: 8px; overflow: hidden; margin-bottom: 16px; }
+  .route-card.alt-route { border-color: var(--border); }
+  .route-card-badge { background: var(--azure); color: var(--white); font-size: 10px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; padding: 5px 16px; display: flex; align-items: center; gap: 6px; }
+  .route-card.alt-route .route-card-badge { background: var(--border); color: var(--muted); }
+  .route-card-body { padding: 20px 24px; }
+  .route-card-title { font-family: 'Cormorant Garamond', serif; font-size: 22px; font-weight: 600; color: var(--navy); margin-bottom: 4px; }
+  .route-card-sub { font-size: 12.5px; color: var(--muted); margin-bottom: 20px; }
+  .route-flow { display: flex; align-items: center; gap: 0; margin-bottom: 20px; flex-wrap: nowrap; overflow-x: auto; padding-bottom: 4px; }
+  .route-node { flex-shrink: 0; text-align: center; min-width: 64px; }
+  .route-node .iata { font-size: 20px; font-weight: 700; color: var(--navy); font-family: 'Cormorant Garamond', serif; line-height: 1; }
+  .route-node .city { font-size: 10px; color: var(--muted); margin-top: 2px; }
+  .route-node .time { font-size: 11px; font-weight: 600; color: var(--ink); margin-top: 4px; }
+  .route-arrow { flex: 1; min-width: 36px; display: flex; flex-direction: column; align-items: center; padding: 0 3px; }
+  .route-arrow .arrow-line { width: 100%; height: 2px; background: linear-gradient(90deg, var(--azure), var(--gold)); position: relative; margin: 4px 0 2px; }
+  .route-arrow .arrow-line::after { content: '▶'; position: absolute; right: -6px; top: -7px; font-size: 10px; color: var(--gold); }
+  .route-arrow .flight-label { font-size: 9.5px; font-weight: 700; letter-spacing: 0.04em; color: var(--azure); white-space: nowrap; }
+  .route-arrow .flight-note { font-size: 9.5px; color: var(--muted); white-space: nowrap; }
+  .route-arrow .nonstop-badge { background: #ECFDF5; color: var(--green); font-size: 8.5px; font-weight: 700; padding: 2px 4px; border-radius: 3px; white-space: nowrap; }
+  .route-stats { display: grid; grid-template-columns: repeat(4, 1fr); gap: 12px; padding-top: 16px; border-top: 1px solid #F0E8D8; }
+  .route-stat .stat-label { font-size: 10px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: var(--muted); margin-bottom: 3px; }
+  .route-stat .stat-val { font-size: 14px; font-weight: 600; color: var(--navy); }
+  .route-stat .stat-sub { font-size: 11px; color: var(--muted); }
+  .cabin-table-wrap { overflow-x: auto; margin: 16px 0; }
+  table.cabin-table { width: 100%; border-collapse: collapse; font-size: 13px; background: var(--white); border: 1px solid var(--border); border-radius: 8px; overflow: hidden; }
+  table.cabin-table th { background: var(--navy); color: var(--white); font-weight: 600; padding: 11px 14px; text-align: left; font-size: 11px; letter-spacing: 0.06em; }
+  table.cabin-table td { padding: 10px 14px; border-bottom: 1px solid #F0E8D8; vertical-align: top; font-size: 12.5px; color: var(--muted); }
+  table.cabin-table td:first-child { color: var(--ink); }
+  table.cabin-table tr:last-child td { border-bottom: none; }
+  table.cabin-table .recommended-row td { background: #EFF7FB; }
+  .cabin-name { font-weight: 600; color: var(--navy); }
+  .cabin-seat { font-size: 11px; color: var(--muted); margin-top: 2px; }
+  .cabin-badge { display: inline-block; font-size: 9px; font-weight: 700; letter-spacing: 0.06em; text-transform: uppercase; padding: 2px 6px; border-radius: 3px; margin-left: 6px; vertical-align: middle; }
+  .cabin-badge.rec { background: var(--azure); color: var(--white); }
+  .cabin-badge.premium { background: var(--gold); color: var(--white); }
+  .alt-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; margin-top: 16px; }
+  .alt-card { background: var(--white); border: 1px solid var(--border); border-radius: 8px; padding: 14px 16px; }
+  .alt-card .carrier { font-weight: 600; font-size: 13px; color: var(--navy); margin-bottom: 2px; }
+  .alt-card .hub { font-size: 11.5px; color: var(--muted); margin-bottom: 8px; }
+  .alt-card .route-line { font-size: 12px; color: var(--ink); padding: 2px 0; }
+  .alt-card .route-line .arrow { color: var(--gold); font-size: 10px; }
+  .alt-card .note { font-size: 11px; color: var(--muted); margin-top: 8px; padding-top: 8px; border-top: 1px solid #F0E8D8; font-style: italic; }
+  /* Food / expect */
+  .expect-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 14px; }
+  .expect-card { background: var(--white); border: 1px solid var(--border); border-radius: 8px; padding: 16px 18px; }
+  .expect-card h4 { font-family: 'Cormorant Garamond', serif; font-size: 16px; font-weight: 600; color: var(--navy); margin-bottom: 8px; }
+  .expect-card ul { list-style: none; padding: 0; }
+  .expect-card ul li { font-size: 12.5px; color: var(--muted); padding: 3px 0; padding-left: 14px; position: relative; }
+  .expect-card ul li::before { content: '—'; position: absolute; left: 0; color: var(--gold); font-size: 11px; }
+  /* Timeline */
+  .timeline { position: relative; padding-left: 24px; }
+  .timeline::before { content: ''; position: absolute; left: 7px; top: 8px; bottom: 8px; width: 2px; background: linear-gradient(to bottom, var(--azure), var(--terracotta)); }
+  .timeline-item { position: relative; margin-bottom: 20px; background: var(--white); border: 1px solid var(--border); border-radius: 8px; padding: 15px 20px; }
+  .timeline-dot { position: absolute; left: -27px; top: 20px; width: 14px; height: 14px; border-radius: 50%; border: 2px solid var(--white); background: var(--azure); box-shadow: 0 0 0 2px var(--azure); }
+  .timeline-item.final .timeline-dot { background: var(--terracotta); box-shadow: 0 0 0 2px var(--terracotta); }
+  .timeline-when { font-size: 11px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: var(--azure); margin-bottom: 3px; }
+  .timeline-item.final .timeline-when { color: var(--terracotta); }
+  .timeline-title { font-size: 15px; font-weight: 600; color: var(--navy); margin-bottom: 5px; }
+  .timeline-desc { font-size: 12.5px; color: var(--muted); line-height: 1.6; }
+  .intensity { display: inline-block; font-size: 9px; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; padding: 2px 7px; border-radius: 3px; margin-left: 8px; vertical-align: middle; }
+  .intensity.hi { background: #FDE8E0; color: var(--terracotta); }
+  .intensity.mid { background: #E8F4FB; color: var(--azure); }
+  .intensity.lo { background: #ECFDF5; color: var(--green); }
+  /* Notes */
+  .notes-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 12px; }
+  .note-item { background: var(--white); border: 1px solid var(--border); border-radius: 6px; padding: 12px 16px; font-size: 12px; color: var(--muted); }
+  .note-item strong { display: block; color: var(--ink); font-size: 12.5px; margin-bottom: 3px; }
+  .divider { border: none; border-top: 1px solid var(--border); margin: 40px 0 0; }
+  .footer { margin-top: 56px; padding: 24px 32px; background: var(--navy); color: rgba(255,255,255,0.5); font-size: 11px; text-align: center; line-height: 1.7; }
+  @media (max-width: 700px) {
+    .hero { padding: 36px 24px 32px; } .hero h1 { font-size: 36px; } .included-bar { padding: 14px 24px; }
+    .main { padding: 28px 18px; }
+    .scenario-grid-2, .prop-grid-2, .expect-grid, .notes-grid, .alt-grid { grid-template-columns: 1fr; }
+    .route-stats { grid-template-columns: repeat(2, 1fr); }
+  }
+</style>
+</head>
+<body>
+
+<div class="hero">
+  <div class="hero-wave"></div>
+  <div class="hero-eyebrow">Nichole's 40th Birthday Trip</div>
+  <h1>Lake Garda, <em>Italy's inland sea</em></h1>
+  <p class="hero-sub">A 7-night trip for 4 at the foot of the Dolomites: cable cars and cliff trails, ferry-hopping between medieval lake towns, Valpolicella wine country, and a private day on the water.</p>
+  <div class="hero-meta">
+    <div class="hero-meta-item"><div class="label">Dates</div><div class="value">May 19–26, 2027 (Wed–Wed, 7 nights)</div></div>
+    <div class="hero-meta-item"><div class="label">Group</div><div class="value">4 adults (6-person option priced)</div></div>
+    <div class="hero-meta-item"><div class="label">Flying from</div><div class="value">RDU → MXP (Milan)</div></div>
+    <div class="hero-meta-item"><div class="label">Home base</div><div class="value">One Airbnb, eastern shore</div></div>
+  </div>
+</div>
+
+<div class="included-bar">
+  <div class="label">Every option includes</div>
+  <div class="items">
+    <span class="item">Round-trip flights RDU–Milan (economy)</span>
+    <span class="item">Private transfers to and from the airport</span>
+    <span class="item">Full-day private skippered boat charter</span>
+    <span class="item">One Airbnb with terrace, all 7 nights</span>
+    <span class="item">Ferry and train passes for the week</span>
+    <span class="item">No driving, no repacking, no cooking dinners</span>
+    <span class="item">Travel insurance</span>
+  </div>
+</div>
+
+<div class="main">
+
+  <div class="callout info">
+    <div class="callout-icon">📅</div>
+    <div class="callout-text"><strong>Dates: Wed, May 19 – Wed, May 26, 2027 · 7 nights</strong> This window clears every constraint: after Mother's Day (Sun, May 9), clear of the May 11–13 work-travel conflict, and home well before Memorial Day weekend and the May 29 birthday. Departure from RDU the evening of Tue, May 18; arrive Milan midday Wed, May 19. Tuesday and Wednesday departures are consistently the cheapest days of the week to fly this route.</div>
+  </div>
+
+  <div class="callout warn">
+    <div class="callout-icon">🇩🇪</div>
+    <div class="callout-text"><strong>Why not the week before: Pentecost falls May 16–17, 2027</strong> Whit Sunday is May 16 and Whit Monday, May 17, is a public holiday in Germany, Austria, and Switzerland. Lake Garda's visitor base is disproportionately German and Austrian, and that long weekend is one of the busiest of the entire spring. Bardolino also runs its rosé wine festival across that weekend. Starting Wednesday May 19 lands just after the wave clears, with full ferry service already running and lodging back at normal shoulder-season rates.</div>
+  </div>
+
+  <div class="callout info">
+    <div class="callout-icon">🚆</div>
+    <div class="callout-text"><strong>Nobody drives, and mostly nobody pays for a driver either</strong> Lake Garda is the rare Italian destination where public transit genuinely works. Ferries connect every town on the lake, regional trains reach Verona in about 15 minutes from the southern shore, and shore buses fill the gaps. Private drivers are booked only where transit falls short: the airport runs at both ends, and one evening in Valpolicella wine country. All of it is already priced below.</div>
+  </div>
+
+  <div class="section-header"><span class="section-num">01</span><h2>Best / Better / Good · Pick Your Base Town</h2></div>
+  <p class="section-desc">Three price tiers, five candidate towns. One Airbnb for all seven nights in every scenario; the only thing that changes between tiers is which town and what calibre of property. The shared costs table below shows what every scenario has in common. The scenario cards show how the lodging choice shifts the total.</p>
+
+  <div class="callout tip">
+    <div class="callout-icon">💡</div>
+    <div class="callout-text"><strong>The tiers here are closer together than you might expect</strong> On the Puglia proposal the gap between Good and Best was roughly $500 per person. Here it is about $315, because Lake Garda lodging simply does not vary as much as Puglian luxury masserias do. That makes this decision much more about the <em>character</em> of the week than the price of it. Every tier below lands inside the $3,000–$4,000 budget.</div>
+  </div>
+
+  <div class="costs-table-wrap">
+    <table class="costs-table">
+      <thead><tr><th>What's in every scenario: same across all tiers (4 adults)</th><th>Per person</th></tr></thead>
+      <tbody>
+        <tr><td>Flights: economy, RDU→Milan round trip, one connection. Current comparable-season round trips are running roughly $645–$870 (Google Flights, Expedia, Trip.com, checked July 2026). Budgeted at $850 to lean high: May 2027 fares are not yet reliably bookable, and a 4-person group booking together loses access to the very cheapest single seats.</td><td>$850</td></tr>
+        <tr><td>Airport transfers: private minivan, Malpensa to the base town and back. Roughly 160–190km, about 2 hours each way. Transfer companies quote on request rather than publishing rates, so this is a defensible estimate of €280–350 each way for a van, not a confirmed quote. The train alternative (Malpensa Express plus a direct regional train) costs about €25/pp total and is a real fallback if quotes come back high.</td><td>$175</td></tr>
+        <tr><td>Food &amp; drinks: 7 days. Breakfast is coffee and pastries at the apartment from a light grocery run (roughly $60/pp for the week). Budget covers 7 dinners out averaging €40–55/pp with wine, 5 lunches out on active days (~€20–25/pp), plus daily aperitivo and gelato. Nobody is cooking a group meal. A private chef night is priced separately below as an option.</td><td>$700</td></tr>
+        <tr><td>Ferries, trains &amp; buses: Navigazione Laghi whole-lake day tickets are €39.50 each (or €33.50/day for the combined bus-and-ferry Gardapass), budgeted for 3 ferry days. Verona return by regional train runs about €5 each way from the southern shore. Local shore buses and incidental transit included. All 2026 published fares.</td><td>$110</td></tr>
+        <tr><td>Private boat day: full day on a skippered Venetian-style wooden boat with sundeck and fridge-bar, seating up to 12. Published market rate is €600 half-day and €900–€1,200 full day for the boat, not per person. Budgeted at €1,000 (~$1,100) split 4 ways, covering a full day with swim stops, Isola del Garda, and Punta San Vigilio. The equivalent of the Puglia charter day.</td><td>$275</td></tr>
+        <tr><td>Private driver: one half-day with a waiting driver for the Valpolicella winery evening, where transit is genuinely poor and nobody should be driving after tastings, plus a contingency evening run. Estimated at €300–350 per half-day for a van.</td><td>$95</td></tr>
+        <tr><td>Activities &amp; entries: Monte Baldo cable car round trip (€30), Vittoriale degli Italiani Path A (€18), Sirmione combined castle and Grotte di Catullo ticket (€20), two winery tastings (~€20 each), plus entry fees and tips. All current published prices.</td><td>$120</td></tr>
+        <tr><td>Travel insurance: comprehensive coverage including trip cancellation; roughly 5–6% of total trip cost. Buy Cancel For Any Reason within 10–14 days of the first deposit or the option disappears.</td><td>$190</td></tr>
+        <tr><td>Personal spending: souvenirs, extra drinks, thermal spa entry if wanted, kayak or paddleboard rental, market browsing, tips, incidentals</td><td>$300</td></tr>
+        <tr class="total-row"><td>Shared subtotal: identical across all five base towns</td><td>$2,815</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <!-- ─────── BEST ─────── -->
+  <div class="tier-section">
+    <div class="tier-header"><span class="tier-header-label">Best</span></div>
+    <p class="tier-subhead">The most dramatic setting on the lake, and a premium property to match. About $230 more per person than the recommended tier.</p>
+    <div class="scenario-grid-1">
+      <div class="scenario-card best-card">
+        <div class="scenario-badge">Best · Riva del Garda · Trentino, far north shore</div>
+        <div class="scenario-head">
+          <div class="scenario-name">Riva del Garda</div>
+          <div class="scenario-tagline">Trentino · Mountain-ringed northern tip · Premium apartment or small villa with terrace</div>
+        </div>
+        <div class="scenario-total">
+          <div class="price">$3,550</div>
+          <div class="price-label">estimated per person, all-in (economy flights)</div>
+        </div>
+        <div class="scenario-lines">
+          <div class="scenario-line lodging-row"><span class="line-label">Lodging: 1 property × ~$420/night × 7 nights ÷ 4 people</span><span class="line-val">$735</span></div>
+          <div class="scenario-line"><span class="line-label">Shared costs (all items in table above)</span><span class="line-val">$2,815</span></div>
+          <div class="scenario-line total-row"><span class="line-label">Estimated Total</span><span class="line-val">$3,550</span></div>
+        </div>
+        <div class="scenario-upgrade"><span>✈️ Add premium economy on the transatlantic legs (personal)</span><span class="upg-val">+$900/pp → $4,450</span></div>
+        <div class="scenario-note">The setting is the argument: sheer cliffs on three sides, the lake opening south, and the Sentiero del Ponale trailhead walkable from the center. Largely pedestrian historic core, main ferry hub for the upper lake. The catch is distance from Verona (no direct train, roughly 1h45m by bus or transfer), which lengthens the southern day trips. Rate is an estimate based on aggregate market data, not a confirmed listing.</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ─────── BETTER ─────── -->
+  <div class="tier-section">
+    <div class="tier-header"><span class="tier-header-label">⭐ Better · Recommended</span></div>
+    <p class="tier-subhead">Two eastern-shore towns at nearly identical prices with different personalities. Bardolino is the best all-around balance of transit, dining, and wine access. Torri del Benaco is prettier and quieter, and closer to Monte Baldo.</p>
+    <div class="scenario-grid-2">
+      <div class="scenario-card recommended">
+        <div class="scenario-badge">Better · Best all-around · Bardolino</div>
+        <div class="scenario-head">
+          <div class="scenario-name">Bardolino</div>
+          <div class="scenario-tagline">Veneto, eastern shore · Wine town on the lake · 2BR apartment with terrace</div>
+        </div>
+        <div class="scenario-total">
+          <div class="price">$3,325</div>
+          <div class="price-label">estimated per person, all-in (economy flights)</div>
+        </div>
+        <div class="scenario-lines">
+          <div class="scenario-line lodging-row"><span class="line-label">Lodging: 1 property × ~$290/night × 7 nights ÷ 4 people</span><span class="line-val">$508</span></div>
+          <div class="scenario-line"><span class="line-label">Shared costs (all items in table above)</span><span class="line-val">$2,815</span></div>
+          <div class="scenario-line total-row"><span class="line-label">Estimated Total</span><span class="line-val">$3,325</span></div>
+        </div>
+        <div class="scenario-upgrade"><span>✈️ Add premium economy on the transatlantic legs (personal)</span><span class="upg-val">+$900/pp → $4,225</span></div>
+        <div class="scenario-note">Flat, walkable lakefront promenade with the highest density of restaurants and wine bars of any candidate town. Main-line ferry stop. Frequent buses to Verona (45–60 min) and along the shore. Bardolino DOC vineyards start at the edge of town, and Valpolicella is a short drive inland. Less scenically dramatic than the north, but by far the easiest week logistically. Rate is a market estimate.</div>
+      </div>
+      <div class="scenario-card recommended">
+        <div class="scenario-badge">Better · Quiet &amp; scenic · Torri del Benaco</div>
+        <div class="scenario-head">
+          <div class="scenario-name">Torri del Benaco</div>
+          <div class="scenario-tagline">Veneto, eastern shore · Medieval harbor village · 2BR apartment with terrace</div>
+        </div>
+        <div class="scenario-total">
+          <div class="price">$3,295</div>
+          <div class="price-label">estimated per person, all-in (economy flights)</div>
+        </div>
+        <div class="scenario-lines">
+          <div class="scenario-line lodging-row"><span class="line-label">Lodging: 1 property × ~$275/night × 7 nights ÷ 4 people</span><span class="line-val">$481</span></div>
+          <div class="scenario-line"><span class="line-label">Shared costs (all items in table above)</span><span class="line-val">$2,815</span></div>
+          <div class="scenario-line total-row"><span class="line-label">Estimated Total</span><span class="line-val">$3,295</span></div>
+        </div>
+        <div class="scenario-upgrade"><span>✈️ Add premium economy on the transatlantic legs (personal)</span><span class="upg-val">+$900/pp → $4,195</span></div>
+        <div class="scenario-note">The prettiest of the practical options: a small harbor under a Scaligeri castle, tight walkable core, far fewer day-trippers than Sirmione or Malcesine get. Ferry stop plus the Torri–Maderno car ferry, which is the fastest way to reach the western shore for Vittoriale. Closer to Monte Baldo than Bardolino. Fewer late-night options and slightly slower to Verona. Rate is a market estimate.</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ─────── GOOD ─────── -->
+  <div class="tier-section">
+    <div class="tier-header"><span class="tier-header-label">Good</span></div>
+    <p class="tier-subhead">Two solid bases that trade something specific for a lower nightly rate. Both still walkable, both still on the ferry network.</p>
+    <div class="scenario-grid-2">
+      <div class="scenario-card">
+        <div class="scenario-badge">Good · Western shore · Salò</div>
+        <div class="scenario-head">
+          <div class="scenario-name">Salò</div>
+          <div class="scenario-tagline">Lombardy, western shore · Elegant lakefront town · 2BR apartment with terrace</div>
+        </div>
+        <div class="scenario-total">
+          <div class="price">$3,235</div>
+          <div class="price-label">estimated per person, all-in (economy flights)</div>
+        </div>
+        <div class="scenario-lines">
+          <div class="scenario-line lodging-row"><span class="line-label">Lodging: 1 property × ~$240/night × 7 nights ÷ 4 people</span><span class="line-val">$420</span></div>
+          <div class="scenario-line"><span class="line-label">Shared costs (all items in table above)</span><span class="line-val">$2,815</span></div>
+          <div class="scenario-line total-row"><span class="line-label">Estimated Total</span><span class="line-val">$3,235</span></div>
+        </div>
+        <div class="scenario-upgrade"><span>✈️ Add premium economy on the transatlantic legs (personal)</span><span class="upg-val">+$900/pp → $4,135</span></div>
+        <div class="scenario-note">The longest lakefront promenade on Garda and a genuinely elegant, un-touristy feel. Walking distance to Gardone Riviera and the Vittoriale. Real Italian town rather than a resort strip, which means better everyday restaurants. The tradeoff: it is more spread out, and Verona day trips are longer from the western shore. Rate is a market estimate.</div>
+      </div>
+      <div class="scenario-card">
+        <div class="scenario-badge">Good · Northeast shore · Malcesine</div>
+        <div class="scenario-head">
+          <div class="scenario-name">Malcesine</div>
+          <div class="scenario-tagline">Veneto, northeast shore · Castle village below Monte Baldo · 2BR apartment with terrace</div>
+        </div>
+        <div class="scenario-total">
+          <div class="price">$3,255</div>
+          <div class="price-label">estimated per person, all-in (economy flights)</div>
+        </div>
+        <div class="scenario-lines">
+          <div class="scenario-line lodging-row"><span class="line-label">Lodging: 1 property × ~$250/night × 7 nights ÷ 4 people</span><span class="line-val">$438</span></div>
+          <div class="scenario-line"><span class="line-label">Shared costs (all items in table above)</span><span class="line-val">$2,815</span></div>
+          <div class="scenario-line total-row"><span class="line-label">Estimated Total</span><span class="line-val">$3,255</span></div>
+        </div>
+        <div class="scenario-upgrade"><span>✈️ Add premium economy on the transatlantic legs (personal)</span><span class="upg-val">+$900/pp → $4,155</span></div>
+        <div class="scenario-note">The Monte Baldo cable car is in town, which makes the biggest hiking day effortless. Gorgeous cobbled center under a lakeside castle. The honest caveat: the tiny historic core is genuinely swamped by day-trippers from mid-morning to late afternoon, and it is the furthest practical base from Verona. Best if the mountain matters more than the city. Rate is a market estimate.</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="callout warn">
+    <div class="callout-icon">⚠️</div>
+    <div class="callout-text"><strong>What's confirmed vs. estimated</strong> Confirmed and current: all activity entry prices (Monte Baldo €30, Vittoriale €18, Sirmione combined €20), ferry fares (€39.50 whole-lake day ticket, €33.50 Gardapass), the Milan-to-Desenzano train (about €10, 50–83 min, 24+ direct trains daily), the Peschiera-to-Verona train (about €5, 13–15 min), and the private boat charter market rate (€600 half day / €900–1,200 full day, published by operators). Estimated: <em>every lodging rate on this page.</em> No specific Airbnb listing has been priced or held. Figures are built from aggregate market data (Lake Garda apartments average about $257/night and houses about $311/night; May is one of the two cheapest months of the year), scaled up for a 2BR with a terrace in a prime town. Also estimated: airport transfer cost (companies quote on request), private driver half-day, and food. Flights are 2026 comparable-season fares used as a proxy; May 2027 fares are not yet reliably bookable.</div>
+  </div>
+
+  <div class="callout tip">
+    <div class="callout-icon">👥</div>
+    <div class="callout-text"><strong>If the group grows to 6, the per-person cost goes down about $290</strong> Four of the big line items are fixed costs split by headcount, not per-person charges. A 3BR instead of a 2BR runs roughly $340/night rather than $290, which is <em>less</em> per person across six ($397 vs. $508). The boat charter drops from $275 to about $183/pp. The airport van holds 8 and costs the same, dropping from $175 to $117/pp. The Valpolicella driver drops from $95 to $63/pp. Flights, food, transit, insurance, and personal spending stay flat per head. Net effect on the recommended Bardolino scenario: roughly <strong>$3,030/pp for six</strong> versus $3,325 for four.</div>
+  </div>
+
+  <div class="callout tip">
+    <div class="callout-icon">👨‍🍳</div>
+    <div class="callout-text"><strong>Optional: one private chef dinner at the apartment</strong> A realistic add-on for the birthday night, and the reason a terrace matters. Private chefs on Lake Garda typically quote per person with a minimum, and small groups of four sit at the expensive end of the per-head scale. Budget roughly <strong>$130–170/pp</strong> for a multi-course dinner with wine pairing at the property, versus about $55–65/pp for a good restaurant dinner, so the true incremental cost is around $75–105/pp for one night. Not in the totals above. This is an estimate, not a quote; get real numbers once the property is booked, since many chefs price by kitchen.</div>
+  </div>
+
+  <div class="callout tip">
+    <div class="callout-icon">✈️</div>
+    <div class="callout-text"><strong>Premium economy is a personal add-on, not a group decision</strong> The transatlantic leg in each direction is the one worth considering an upgrade on. Premium economy means a dedicated cabin, wider seat, real recline, and upgraded meals. It is roughly +$900/pp round trip and booked on your own ticket. Anyone who wants it adds it without changing what anyone else pays. Everyone lands together regardless.</div>
+  </div>
+
+  <hr class="divider">
+  <div class="section-header"><span class="section-num">02</span><h2>Getting There · Two Routings, Head to Head</h2></div>
+  <p class="section-desc">There is no nonstop from RDU to anywhere in northern Italy or Switzerland, so every option requires at least one connection. The real question is not which airline, it is whether to fly round trip into Milan and transfer by road, or fly into Zurich, take the scenic train south, and fly home from Milan. Both were priced. One of them is clearly better for this trip.</p>
+
+  <div class="route-card">
+    <div class="route-card-badge">⭐ Recommended · Milan round trip, private transfer to the lake</div>
+    <div class="route-card-body">
+      <div class="route-card-title">RDU → MXP &nbsp;/&nbsp; MXP → RDU</div>
+      <div class="route-card-sub">One connection each way · ~$850/pp economy budgeted (current comparable fares $645–$870) · about 2 hours by private van from Malpensa to the lake</div>
+      <div style="font-size:10px; font-weight:700; letter-spacing:0.1em; text-transform:uppercase; color:var(--gold); margin-bottom:8px;">Outbound · 1 stop, then a 2-hour transfer</div>
+      <div class="route-flow">
+        <div class="route-node"><div class="iata">RDU</div><div class="city">Raleigh-Durham</div><div class="time">evening</div></div>
+        <div class="route-arrow"><div class="flight-label">economy</div><div class="arrow-line"></div><div class="nonstop-badge">transatlantic</div></div>
+        <div class="route-node"><div class="iata">HUB</div><div class="city">FRA / MUC / CDG</div><div class="time">morning +1</div></div>
+        <div class="route-arrow"><div class="flight-label">economy</div><div class="arrow-line"></div><div class="flight-note">~1.5 hr</div></div>
+        <div class="route-node"><div class="iata">MXP</div><div class="city">Milan</div><div class="time">midday +1</div></div>
+        <div class="route-arrow"><div class="flight-label">private van</div><div class="arrow-line"></div><div class="flight-note">~2 hr</div></div>
+        <div class="route-node"><div class="iata">🏡</div><div class="city">Base town</div><div class="time">mid-afternoon</div></div>
+      </div>
+      <div class="route-stats">
+        <div class="route-stat"><div class="stat-label">Connections</div><div class="stat-val">1 each way</div><div class="stat-sub">via a European hub</div></div>
+        <div class="route-stat"><div class="stat-label">Door to door</div><div class="stat-val">~16–18 hr</div><div class="stat-sub">including ground transfer</div></div>
+        <div class="route-stat"><div class="stat-label">Economy / person</div><div class="stat-val">~$850</div><div class="stat-sub">budgeted high vs. $645–870 current</div></div>
+        <div class="route-stat"><div class="stat-label">Luggage handoffs</div><div class="stat-val">2</div><div class="stat-sub">hub connection, then van</div></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="route-card alt-route">
+    <div class="route-card-badge">Considered · Zurich in, scenic train south, Milan out</div>
+    <div class="route-card-body">
+      <div class="route-card-title">RDU → ZRH &nbsp;·&nbsp; train to the lake &nbsp;·&nbsp; MXP → RDU</div>
+      <div class="route-card-sub">Open-jaw ticket · estimated $800–$1,050/pp economy (Zurich round trips currently run $850–$990) · EuroCity Zurich to Milan about 3h17m from CHF 38, then about 50–83 min to Desenzano for about €10</div>
+      <div style="font-size:10px; font-weight:700; letter-spacing:0.1em; text-transform:uppercase; color:var(--gold); margin-bottom:8px;">Outbound · 1 stop, then two trains</div>
+      <div class="route-flow">
+        <div class="route-node"><div class="iata">RDU</div><div class="city">Raleigh-Durham</div><div class="time">evening</div></div>
+        <div class="route-arrow"><div class="flight-label">economy</div><div class="arrow-line"></div><div class="nonstop-badge">transatlantic</div></div>
+        <div class="route-node"><div class="iata">HUB</div><div class="city">European hub</div><div class="time">morning +1</div></div>
+        <div class="route-arrow"><div class="flight-label">economy</div><div class="arrow-line"></div><div class="flight-note">~1.5 hr</div></div>
+        <div class="route-node"><div class="iata">ZRH</div><div class="city">Zurich</div><div class="time">midday +1</div></div>
+        <div class="route-arrow"><div class="flight-label">EuroCity</div><div class="arrow-line"></div><div class="flight-note">~3h17m</div></div>
+        <div class="route-node"><div class="iata">MIL</div><div class="city">Milano Centrale</div><div class="time">late afternoon</div></div>
+        <div class="route-arrow"><div class="flight-label">regional</div><div class="arrow-line"></div><div class="flight-note">~50–83 min</div></div>
+        <div class="route-node"><div class="iata">DES</div><div class="city">Desenzano</div><div class="time">evening</div></div>
+      </div>
+      <div class="route-stats">
+        <div class="route-stat"><div class="stat-label">Connections</div><div class="stat-val">1 air + 2 rail</div><div class="stat-sub">outbound only</div></div>
+        <div class="route-stat"><div class="stat-label">Door to door</div><div class="stat-val">~21–23 hr</div><div class="stat-sub">arrive after dark</div></div>
+        <div class="route-stat"><div class="stat-label">Economy / person</div><div class="stat-val">~$800–1,050</div><div class="stat-sub">open-jaw, estimated</div></div>
+        <div class="route-stat"><div class="stat-label">Luggage handoffs</div><div class="stat-val">4</div><div class="stat-sub">hub, ZRH, Milan, Desenzano</div></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="cabin-table-wrap">
+    <table class="cabin-table">
+      <thead><tr><th>Routing</th><th>What you get</th><th>Cost per person</th><th>The honest read</th></tr></thead>
+      <tbody>
+        <tr class="recommended-row">
+          <td><div class="cabin-name">Milan round trip <span class="cabin-badge rec">Recommended</span></div><div class="cabin-seat">RDU–MXP, 1 stop each way</div></td>
+          <td>Fastest door-to-door, one ground transfer at each end, arrive at the property mid-afternoon on day one with the whole evening intact</td>
+          <td>~$850 flights<br>+ $175 transfers</td>
+          <td>Cheaper, simpler, and it buys back most of a day. This is what's priced in all five scenarios above.</td>
+        </tr>
+        <tr>
+          <td><div class="cabin-name">Zurich in / Milan out <span class="cabin-badge premium">Considered</span></div><div class="cabin-seat">Open-jaw, scenic rail leg</div></td>
+          <td>A genuinely comfortable modern EuroCity ride with Lake Lugano and the Alpine approach, plus a few hours in Zurich if you want them</td>
+          <td>~$800–1,050 flights<br>+ ~$60 rail</td>
+          <td>The scenery does not deliver what the idea promises. See below.</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="callout warn">
+    <div class="callout-icon">🚇</div>
+    <div class="callout-text"><strong>Why the "scenic train" argument does not hold up here</strong> The modern Zurich to Milan EuroCity runs through the Gotthard Base Tunnel, which at 57km is the longest rail tunnel in the world. That is roughly twenty minutes underground with no view at all, and the Italian half of the run is comparatively flat. It is a pleasant, comfortable ride, but it is not the postcard Alpine rail journey people picture, and the route that <em>is</em> that journey (the old Gotthard Panorama line) is a separate, slower, seasonal product that does not connect cleanly to Lake Garda. Weighed against roughly $150–250 more per person, four luggage handoffs instead of two, and an arrival after dark on day one, the Switzerland routing costs a meaningful piece of the trip and returns less than it sounds like it will. <strong>Recommendation: fly Milan both ways.</strong> If Switzerland is genuinely appealing, it deserves its own trip rather than being bolted onto the front of this one.</div>
+  </div>
+
+  <div style="font-size:13px; font-weight:600; color:var(--navy); margin: 20px 0 10px;">Other arrival airports worth pricing when fares open</div>
+  <div class="alt-grid">
+    <div class="alt-card">
+      <div class="carrier">Verona (VRN)</div>
+      <div class="hub">via a European hub</div>
+      <div class="route-line">RDU <span class="arrow">→</span> HUB <span class="arrow">→</span> VRN</div>
+      <div class="route-line">Closest airport to the lake</div>
+      <div class="note">The strongest backup. Current comparable fares run roughly $580–$810, and the ground transfer drops to about 40 minutes, saving real money and time. Fewer frequencies means less schedule flexibility. Switch to this if Milan fares climb above about $950/pp.</div>
+    </div>
+    <div class="alt-card">
+      <div class="carrier">Venice (VCE)</div>
+      <div class="hub">via a European hub</div>
+      <div class="route-line">RDU <span class="arrow">→</span> HUB <span class="arrow">→</span> VCE</div>
+      <div class="route-line">~2 hr to the lake</div>
+      <div class="note">Comparable fares around $550–$810 and a direct train line toward Desenzano and Peschiera. Worth pricing, though the ground leg is no better than Milan's.</div>
+    </div>
+    <div class="alt-card">
+      <div class="carrier">Bergamo (BGY)</div>
+      <div class="hub">limited long-haul connectivity</div>
+      <div class="route-line">RDU <span class="arrow">→</span> HUB <span class="arrow">→</span> BGY</div>
+      <div class="route-line">~90 km to the lake</div>
+      <div class="note">Geographically the closest of the Milan-area airports, but it is primarily a low-cost carrier base with thin connections from US long-haul. Check it, do not count on it.</div>
+    </div>
+  </div>
+
+  <hr class="divider">
+  <div class="section-header"><span class="section-num">03</span><h2>The Five Base Towns</h2></div>
+  <p class="section-desc">All five are walkable, all five are on the ferry network, and all five work without a car. What varies is scenery, crowd levels, nightlife, and how long the day trips take.</p>
+
+  <div class="callout info">
+    <div class="callout-icon">🗺️</div>
+    <div class="callout-text"><strong>A word on Lake Garda geography</strong> The lake runs about 50km north to south and changes character completely along the way. The <em>north</em> is narrow, fjord-like, and ringed by cliffs, with the best hiking and the coolest water. The <em>south</em> is wide, gentle, and vineyard-covered, with the fastest access to Verona and Milan. The eastern shore is Veneto and better connected to Verona; the western shore is Lombardy and better connected to Brescia and Milan. Ferries stitch the whole thing together, so no single base locks you out of anything. The choice is about which end of the lake you want to wake up on.</div>
+  </div>
+
+  <div class="callout warn">
+    <div class="callout-icon">🚫</div>
+    <div class="callout-text"><strong>Two towns deliberately ruled out as a base</strong> <strong>Sirmione</strong> is spectacular and absolutely worth a day, but the historic center sits on a narrow peninsula reached through a single castle gate, and it clogs badly with day-trippers and tour coaches. Wonderful to visit, exhausting to live in for a week. <strong>Limone sul Garda</strong> is beautiful and dramatically sited, but it is transit-limited compared to the others, heavily oriented toward package tourism, and awkward for reaching Verona. Both are on the ferry route and easy to visit from any of the five bases above.</div>
+  </div>
+
+  <div class="prop-tier-label">Best</div>
+  <div class="prop-grid-1">
+    <div class="prop-card best-prop">
+      <h4>Riva del Garda</h4>
+      <span class="prop-tier-tag">Best · Trentino, far north · Premium property est. ~$420/night</span>
+      <p>The most visually dramatic base on the lake. Riva sits at the northern tip where the water narrows between near-vertical cliffs, giving it a distinctly Alpine feel that the softer southern shore does not have. The historic center is compact, largely pedestrian, and genuinely lived-in rather than resort-built, with a proper piazza, a medieval tower, and a working harbor. It is also the most active base: the Sentiero del Ponale trailhead is reachable on foot, windsurfing and sailing are serious pursuits here, and the mountains start immediately behind the town.</p>
+      <p><em>Pick this if:</em> the group wants the scenery to be the headline and is happy trading longer southern day trips for waking up under cliffs every morning.</p>
+      <div class="prop-facts">
+        <div class="prop-fact"><span class="fi">🚶</span><span><b>Walkability:</b> Compact, largely pedestrian historic core; everything on foot</span></div>
+        <div class="prop-fact"><span class="fi">⛴️</span><span><b>Ferry:</b> Main hub for the upper lake; full service running by mid-May</span></div>
+        <div class="prop-fact"><span class="fi">🥾</span><span><b>Activities:</b> Ponale trail on foot from town; Monte Baldo reachable by ferry to Malcesine</span></div>
+        <div class="prop-fact"><span class="fi">⚠️</span><span><b>Caveat:</b> No direct train; Verona is roughly 1h45m+ by bus or transfer, the longest of any base</span></div>
+        <div class="prop-fact"><span class="fi">💰</span><span><b>Rate:</b> ~$420/night estimated for a premium terrace property (market estimate, no listing held)</span></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="prop-tier-label">Better · Two options</div>
+  <div class="prop-grid-2">
+    <div class="prop-card better-prop">
+      <h4>Bardolino</h4>
+      <span class="prop-tier-tag">Better · Veneto, eastern shore · Est. ~$290/night</span>
+      <p>The best all-around base, and the one this proposal recommends. Bardolino is flat, walkable, and built along a long lakefront promenade with the densest concentration of restaurants, wine bars, and gelaterias of any town in the comparison. It is a resort town and does not pretend otherwise, but it is a lively and pleasant one rather than a manufactured one, and it stays open and busy in the evenings, which matters when the group hangout is part of the point. The Bardolino DOC vineyards begin at the edge of town and Valpolicella is a short ride inland.</p>
+      <p><em>Pick this if:</em> you want the easiest possible week logistically, the best evening scene, and wine country genuinely on the doorstep.</p>
+      <div class="prop-facts">
+        <div class="prop-fact"><span class="fi">🚶</span><span><b>Walkability:</b> Flat lakefront promenade; everything within a 10-minute walk</span></div>
+        <div class="prop-fact"><span class="fi">⛴️</span><span><b>Ferry:</b> Stop on the main Desenzano–Riva line</span></div>
+        <div class="prop-fact"><span class="fi">🚌</span><span><b>Verona:</b> Frequent shore buses, roughly 45–60 min</span></div>
+        <div class="prop-fact"><span class="fi">🍷</span><span><b>Wine:</b> Bardolino DOC cellars walkable in town; Valpolicella a short drive inland</span></div>
+        <div class="prop-fact"><span class="fi">💰</span><span><b>Rate:</b> ~$290/night estimated for a 2BR with terrace (market estimate, no listing held)</span></div>
+      </div>
+    </div>
+    <div class="prop-card better-prop">
+      <h4>Torri del Benaco</h4>
+      <span class="prop-tier-tag">Better · Veneto, eastern shore · Est. ~$275/night</span>
+      <p>The quiet, good-looking alternative. Torri is a small medieval harbor village built around a Scaligeri castle that sits directly on the water, with a tight walkable core and noticeably fewer day-trippers than Sirmione or Malcesine get. It is the prettiest of the genuinely practical bases. It also has a logistical advantage the others do not: the Torri to Maderno car ferry runs year-round across the lake, which is the fastest way to reach Gardone Riviera, the Vittoriale, and the western shore generally.</p>
+      <p><em>Pick this if:</em> the group would rather have charm and quiet evenings than restaurant choice and nightlife.</p>
+      <div class="prop-facts">
+        <div class="prop-fact"><span class="fi">🚶</span><span><b>Walkability:</b> Tight medieval core; fully walkable, very low traffic</span></div>
+        <div class="prop-fact"><span class="fi">⛴️</span><span><b>Ferry:</b> Main-line stop plus the year-round Torri–Maderno cross-lake ferry</span></div>
+        <div class="prop-fact"><span class="fi">🚡</span><span><b>Monte Baldo:</b> Closer to Malcesine and the cable car than Bardolino</span></div>
+        <div class="prop-fact"><span class="fi">⚠️</span><span><b>Caveat:</b> Limited late-night options; slightly longer to Verona than Bardolino</span></div>
+        <div class="prop-fact"><span class="fi">💰</span><span><b>Rate:</b> ~$275/night estimated for a 2BR with terrace (market estimate, no listing held)</span></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="prop-tier-label">Good · Two options</div>
+  <div class="prop-grid-2">
+    <div class="prop-card">
+      <h4>Salò</h4>
+      <span class="prop-tier-tag">Good · Lombardy, western shore · Est. ~$240/night</span>
+      <p>A real Italian town rather than a resort, with the longest lakefront promenade on Garda and an elegant, slightly formal feel. Because Salò functions year-round for its own residents, the everyday restaurants tend to be better value than in the tourist-facing towns, and the evening passeggiata along the water is genuinely lovely. Gardone Riviera and the Vittoriale degli Italiani are close enough to reach on foot or by a short bus.</p>
+      <p><em>Pick this if:</em> the group prefers an unhurried working town over a resort strip and does not mind slightly longer trips to Verona.</p>
+      <div class="prop-facts">
+        <div class="prop-fact"><span class="fi">🚶</span><span><b>Walkability:</b> Walkable but more spread out than Torri or Bardolino</span></div>
+        <div class="prop-fact"><span class="fi">⛴️</span><span><b>Ferry:</b> Main-line stop; western shore routes</span></div>
+        <div class="prop-fact"><span class="fi">🏛️</span><span><b>Nearby:</b> Vittoriale degli Italiani at Gardone Riviera, very close</span></div>
+        <div class="prop-fact"><span class="fi">⚠️</span><span><b>Caveat:</b> Western shore means longer Verona day trips; Brescia is the closer city</span></div>
+        <div class="prop-fact"><span class="fi">💰</span><span><b>Rate:</b> ~$240/night estimated for a 2BR with terrace (market estimate, no listing held)</span></div>
+      </div>
+    </div>
+    <div class="prop-card">
+      <h4>Malcesine</h4>
+      <span class="prop-tier-tag">Good · Veneto, northeast shore · Est. ~$250/night</span>
+      <p>Postcard Lake Garda: a cobbled medieval village wrapped around a castle on a rocky promontory, with Monte Baldo rising 1,700m directly behind it. The cable car station is in town, which makes the single biggest hiking day of the week effectively zero-logistics. Evenings after the day boats leave are genuinely charming.</p>
+      <p><em>Pick this if:</em> the mountain is the priority and the group is happy to be far from Verona.</p>
+      <div class="prop-facts">
+        <div class="prop-fact"><span class="fi">🚡</span><span><b>Monte Baldo:</b> Cable car station in town; open April 4 to November 1</span></div>
+        <div class="prop-fact"><span class="fi">⛴️</span><span><b>Ferry:</b> Main-line stop plus seasonal cross-lake service to Limone</span></div>
+        <div class="prop-fact"><span class="fi">⚠️</span><span><b>Caveat:</b> Heavy day-tripper crowding in the small center from late morning to late afternoon</span></div>
+        <div class="prop-fact"><span class="fi">⚠️</span><span><b>Caveat:</b> Furthest practical base from Verona and the southern sights</span></div>
+        <div class="prop-fact"><span class="fi">💰</span><span><b>Rate:</b> ~$250/night estimated for a 2BR with terrace (market estimate, no listing held)</span></div>
+      </div>
+    </div>
+  </div>
+
+  <hr class="divider">
+  <div class="section-header"><span class="section-num">04</span><h2>What There Is To Do</h2></div>
+  <p class="section-desc">Everything below has been checked against current published pricing and operating seasons. All of it is reachable without a car from any of the recommended bases.</p>
+  <div class="expect-grid">
+    <div class="expect-card">
+      <h4>🥾 On Foot &amp; Up High</h4>
+      <ul>
+        <li><strong>Monte Baldo cable car</strong> (Malcesine): €30 adult round trip, €28 online. Open April 4 to Nov 1; first ascent 8:15, last 18:00. Rotating cabins on the upper section. Book online to skip the queue.</li>
+        <li><strong>Hiking from Tratto Spino</strong> (1,760m): ridge walks straight from the top station with the whole lake below. Range of distances, so people can turn back when they want.</li>
+        <li><strong>Sentiero del Ponale</strong> (Riva del Garda): free. Wide gravel cliff path cut into the rock above the lake, easy to moderate. Turn back at Belvedere for a short version or continue toward Pregasina.</li>
+        <li>Note: the Ponale is shared with cyclists and occasionally closed for rockfall work. Check status the morning of.</li>
+      </ul>
+    </div>
+    <div class="expect-card">
+      <h4>⛴️ On the Water</h4>
+      <ul>
+        <li><strong>Private skippered boat day</strong>: the centerpiece. Venetian-style wooden boat with sundeck and fridge-bar, seats up to 12. Published rates: €600 half day, €900–1,200 full day, for the boat. Swim stops, Isola del Garda, Punta San Vigilio.</li>
+        <li><strong>Ferry-hopping</strong>: Navigazione Laghi whole-lake day ticket €39.50, or the combined bus-and-ferry Gardapass at €33.50/day. Slow motorboats stop everywhere and are the scenic choice; fast catamarans carry a surcharge.</li>
+        <li><strong>Kayak and paddleboard</strong>: widely available by the hour in every shore town. Small motorboats under 40hp need no licence, roughly €150–300/day.</li>
+        <li>Full summer ferry service starts mid-May, so it will be running for this window.</li>
+      </ul>
+    </div>
+    <div class="expect-card">
+      <h4>🍷 Wine &amp; Towns</h4>
+      <ul>
+        <li><strong>Bardolino DOC tastings</strong>: cellars including Lenotti and Cantina Valetti are walkable from town, tastings around €20/pp.</li>
+        <li><strong>Valpolicella / Amarone</strong>: the serious wine day, inland toward Verona. Small-group tours run from Verona with pickup, or use the private driver. This is the one evening where transit genuinely does not work.</li>
+        <li><strong>Verona by train</strong>: Peschiera to Verona Porta Nuova is 13–15 minutes from about €5, very frequent. The Arena, Casa di Giulietta, Piazza delle Erbe, and a long lunch.</li>
+        <li><strong>Sirmione</strong>: Rocca Scaligera castle and the Grotte di Catullo Roman villa on a combined €20 ticket valid 7 days. The Aquaria thermal spa is separate; book ahead.</li>
+      </ul>
+    </div>
+    <div class="expect-card">
+      <h4>🏛️ One Genuinely Strange Afternoon</h4>
+      <ul>
+        <li><strong>Vittoriale degli Italiani</strong> (Gardone Riviera): €18 for Path A: the monumental park, three museums, and a guided tour of the poet Gabriele d'Annunzio's house.</li>
+        <li>It is one of the odder places in Italy: a hillside estate containing a full-size warship embedded in the garden, an aircraft hung indoors, and a mausoleum. Reliably the thing people talk about afterward.</li>
+        <li>Open daily with summer hours to 20:00; ticket office closes an hour before. Reach it by ferry to Gardone plus a short walk.</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="callout tip">
+    <div class="callout-icon">🎭</div>
+    <div class="callout-text"><strong>One thing this window misses, and it is unavoidable</strong> The Arena di Verona opera festival does not open until June 11, 2027, so there is no chance of catching a performance in the Roman amphitheatre during this trip. The flip side is that Verona in late May is meaningfully less crowded and cheaper than it becomes once the festival starts. The Arena itself is still open to visit during the day.</div>
+  </div>
+
+  <hr class="divider">
+  <div class="section-header"><span class="section-num">05</span><h2>Suggested 7-Night Itinerary</h2></div>
+  <p class="section-desc">One apartment, 7 nights, true home base. The rhythm alternates naturally rather than blocking out formal rest days: the hardest day is followed by a boat-based one, the big private charter sits mid-week when energy peaks, and the Verona day lands late when everyone wants a city and a long lunch. Intensity is tagged on each day.</p>
+  <div class="timeline">
+    <div class="timeline-item">
+      <div class="timeline-dot"></div>
+      <div class="timeline-when">Tue, May 18 · evening departure from RDU</div>
+      <div class="timeline-title">✈️ Fly RDU → Milan <span class="intensity lo">Travel</span></div>
+      <div class="timeline-desc">Depart RDU in the evening. Overnight transatlantic leg, one connection at a European hub, then into Milan Malpensa around midday on May 19. Private van meets the group at arrivals for the roughly 2-hour transfer to the base town.</div>
+    </div>
+    <div class="timeline-item">
+      <div class="timeline-dot"></div>
+      <div class="timeline-when">Day 1 · Wed, May 19 · Arrive</div>
+      <div class="timeline-title">🛬 Settle In <span class="intensity lo">Low</span></div>
+      <div class="timeline-desc">Arrive mid-afternoon with the evening still intact. Light grocery run for coffee, breakfast things, and wine for the terrace. Walk the lakefront, find dinner nearby, do not plan anything.</div>
+    </div>
+    <div class="timeline-item">
+      <div class="timeline-dot"></div>
+      <div class="timeline-when">Day 2 · Thu, May 20 · Ease In</div>
+      <div class="timeline-title">🍷 Town + Bardolino Wine Cellars <span class="intensity lo">Low</span></div>
+      <div class="timeline-desc">A deliberate soft landing on day two, when jet lag actually hits. Explore the base town properly, long lunch, then an afternoon tasting at a cellar within walking distance. Aperitivo on the terrace, dinner in town.</div>
+    </div>
+    <div class="timeline-item">
+      <div class="timeline-dot"></div>
+      <div class="timeline-when">Day 3 · Fri, May 21 · The Big One</div>
+      <div class="timeline-title">🚡 Monte Baldo Cable Car &amp; Ridge Hike <span class="intensity hi">High</span></div>
+      <div class="timeline-desc">Ferry or bus to Malcesine, then the rotating cable car up to Tratto Spino at 1,760m. Ridge walking with the entire lake spread out below, at whatever distance people want. Down mid-afternoon, wander Malcesine's cobbled center once the day boats have cleared, ferry home.</div>
+    </div>
+    <div class="timeline-item">
+      <div class="timeline-dot"></div>
+      <div class="timeline-when">Day 4 · Sat, May 22 · Recover On Water</div>
+      <div class="timeline-title">⛴️ Ferry-Hopping &amp; the Vittoriale <span class="intensity mid">Medium</span></div>
+      <div class="timeline-desc">Legs get a day off without anyone calling it a rest day. Whole-lake day ticket, hop the slow boats, lunch in a town nobody has seen yet, then across to Gardone Riviera for the Vittoriale degli Italiani in the afternoon. Sitting on a ferry deck counts as recovery.</div>
+    </div>
+    <div class="timeline-item">
+      <div class="timeline-dot"></div>
+      <div class="timeline-when">Day 5 · Sun, May 23 · The Centerpiece</div>
+      <div class="timeline-title">⛵ Private Boat Day <span class="intensity mid">Medium</span></div>
+      <div class="timeline-desc">The whole day on a private skippered boat, just the group. Isola del Garda, Punta San Vigilio, swim stops wherever the water looks right, aperitivo aboard, no fixed schedule. This is the memory-making day and the direct equivalent of the Puglia charter.</div>
+    </div>
+    <div class="timeline-item">
+      <div class="timeline-dot"></div>
+      <div class="timeline-when">Day 6 · Mon, May 24 · Active Morning</div>
+      <div class="timeline-title">🥾 Sentiero del Ponale &amp; Riva del Garda <span class="intensity hi">High AM</span> <span class="intensity lo">Low PM</span></div>
+      <div class="timeline-desc">North for the day. The Ponale cliff path out of Riva in the morning, which is the single most photogenic hour of the trip, turning back whenever the group wants. Lunch in Riva, afternoon at leisure in the old town. Quiet evening back at the property with the terrace and cards.</div>
+    </div>
+    <div class="timeline-item">
+      <div class="timeline-dot"></div>
+      <div class="timeline-when">Day 7 · Tue, May 25 · Last Full Day</div>
+      <div class="timeline-title">🏛️ Verona, or Sirmione, then the Birthday Dinner <span class="intensity mid">Medium</span></div>
+      <div class="timeline-desc">Train to Verona for the Arena, Piazza delle Erbe, and a long lunch. Sirmione's castle and the Grotte di Catullo swap in if the group would rather stay lakeside. Back in time for the celebration dinner, which is the natural night for the private chef option if the group takes it.</div>
+    </div>
+    <div class="timeline-item final">
+      <div class="timeline-dot"></div>
+      <div class="timeline-when">Day 8 · Wed, May 26 · Fly Home</div>
+      <div class="timeline-title">🛫 Check Out + Milan → Home <span class="intensity lo">Travel</span></div>
+      <div class="timeline-desc">Breakfast on the terrace, private van back to Malpensa, one connection, home to RDU the same day. Clear of Memorial Day weekend and of the May 29 birthday.</div>
+    </div>
+  </div>
+
+  <hr class="divider">
+  <div class="section-header"><span class="section-num">06</span><h2>What You're Getting</h2></div>
+  <div class="expect-grid">
+    <div class="expect-card">
+      <h4>⛵ The Boat Day</h4>
+      <ul>
+        <li>Private charter, just the group, no strangers aboard and no fixed schedule</li>
+        <li>Full day on a Venetian-style wooden boat with a sundeck, table, and fridge-bar, run by a local skipper</li>
+        <li>Isola del Garda, Punta San Vigilio, and swim stops chosen on the day</li>
+        <li>The same idea as the Puglia charter day, on an alpine lake instead of the Adriatic</li>
+      </ul>
+    </div>
+    <div class="expect-card">
+      <h4>🚆 Getting Around · Nobody Drives</h4>
+      <ul>
+        <li>No rental car and no designated driver at any point in the week</li>
+        <li>Ferries, regional trains, and shore buses cover almost everything; day passes are already budgeted</li>
+        <li>Private van for both airport runs and one driver for the Valpolicella evening, where transit genuinely fails</li>
+        <li>Wine at dinner is never a logistics problem</li>
+      </ul>
+    </div>
+    <div class="expect-card">
+      <h4>🍝 The Food · No Cooking</h4>
+      <ul>
+        <li>Coffee, pastries, and fruit at the apartment each morning from one light grocery run</li>
+        <li>Every dinner and most lunches out: lake fish, Verona-area beef, risotto, and northern Italian cooking that is completely different from Puglia's</li>
+        <li>Nobody is cooking for the group or coordinating who owes what</li>
+        <li>Optional private chef night at the property for the birthday, priced separately</li>
+      </ul>
+    </div>
+    <div class="expect-card">
+      <h4>🛋️ The Evenings</h4>
+      <ul>
+        <li>One property with a terrace or garden, booked specifically so the evenings have a home</li>
+        <li>Aperitivo on the terrace, then out to dinner, then back for cards</li>
+        <li>Late May on Garda: warm, long evenings, and everything still open before the summer crush</li>
+        <li>Same rhythm the group already knows works</li>
+      </ul>
+    </div>
+  </div>
+
+  <hr class="divider">
+  <div class="section-header"><span class="section-num">07</span><h2>Don't Forget These</h2></div>
+  <div class="notes-grid">
+    <div class="note-item"><strong>✈️ When To Book Flights</strong> May 2027 transatlantic schedules load roughly 11 months out, so the dates become bookable in mid-to-late 2026. Historically the best pricing on this kind of route lands between November 2026 and February 2027. Set fare alerts for RDU–MXP and RDU–VRN now and book all four together.</div>
+    <div class="note-item"><strong>🏡 Book the Airbnb Early</strong> This is the most time-sensitive item. Good 2BR and 3BR properties with real terraces in prime lake towns for late May get taken well in advance, and the terrace is load-bearing for how the evenings work. Lock this before flights if you have to choose.</div>
+    <div class="note-item"><strong>⛵ Book the Boat Day</strong> Private skippered boats in May book up months ahead, especially weekends. Once the base town is settled, reserve the charter. It is the centerpiece and the hardest thing to replace late.</div>
+    <div class="note-item"><strong>🛂 Passports</strong> Italy requires validity at least 3 months beyond departure from the Schengen area, but a 6-month cushion is the safe standard and some airlines enforce it. Check all four expiration dates now; renewal backlogs have been significant.</div>
+    <div class="note-item"><strong>🇪🇺 EES and ETIAS</strong> The EU's biometric Entry/Exit System is operating, so expect fingerprint and facial registration on first entry. ETIAS has been repeatedly delayed and its status for May 2027 is genuinely uncertain. Budget €20/pp and check the official EU site in early 2027 in case it is live by then.</div>
+    <div class="note-item"><strong>🛡️ Insurance Timing</strong> Cancel For Any Reason coverage generally must be purchased within 10–14 days of the <em>first</em> trip deposit. Whichever gets booked first, flights or the apartment, start the clock then. Miss the window and CFAR is off the table permanently.</div>
+    <div class="note-item"><strong>🌡️ Late May Weather</strong> Typically low-to-mid 70s°F and sunny, with cooler mornings at the northern end and genuinely cold lake water. Bring layers for the cable car summit, where it will be significantly colder than lake level. Evenings are warm enough to sit out.</div>
+    <div class="note-item"><strong>📋 Next Steps</strong> Confirm the group is 4 or 6, since that changes the property size and about $290/pp. Pick a base town from the tiers above. Then price real Airbnb listings for May 19–26, 2027 and replace every lodging estimate on this page with an actual number.</div>
+  </div>
+
+</div>
+
+<div class="footer">
+  Cost estimates prepared July 2026 · Non-lodging baseline ($2,815/pp at 4 people) built from current published fares and rates<br>
+  Verified current: Monte Baldo €30 · Vittoriale €18 · Sirmione combined €20 · ferry day ticket €39.50 · Gardapass €33.50/day · Milan–Desenzano train ~€10 · Peschiera–Verona train ~€5 · boat charter €900–1,200/day<br>
+  Estimated, not quoted: all lodging rates, airport transfers, private driver, food. No specific Airbnb listing has been priced or held.<br>
+  Flights are July 2026 comparable-season fares used as a proxy; May 2027 fares are not yet reliably bookable · All figures in USD · Euro costs converted at €1 = $1.10<br>
+  Questions? Contact Ashley, she's coordinating everything.
+</div>
+
+</body>
+</html>
